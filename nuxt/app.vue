@@ -1,5 +1,7 @@
+<script>
+import '~/config/style.css'
+</script>
+
 <template>
-  <div>
-    <Home />
-  </div>
+  <NuxtPage />
 </template>

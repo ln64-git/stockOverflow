@@ -1,6 +1,6 @@
 
 import { updateAppConfig } from '#app'
-import { defuFn } from 'C:/Users/Lucian/Desktop/module-3-capstone-main/nuxt/node_modules/defu/dist/defu.mjs'
+import { defuFn } from 'C:/Users/Lucian/Desktop/stockOverflow/nuxt/node_modules/defu/dist/defu.mjs'
 
 const inlineConfig = {
   "nuxt": {}

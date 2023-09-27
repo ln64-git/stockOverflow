@@ -1,1 +1,1 @@
-export { default } from "file:///C:/Users/Lucian/Desktop/module-3-capstone-main/nuxt/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
+export { default } from "file:///C:/Users/Lucian/Desktop/stockOverflow/nuxt/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
