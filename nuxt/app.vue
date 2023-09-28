@@ -1,7 +1,9 @@
 <script>
-import '~/config/style.css'
+import "~/global.css"
 </script>
 
 <template>
-  <NuxtPage />
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
