@@ -16,6 +16,7 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.0",
+    "@pinia/nuxt": "^0.4.11",
     "daisyui": "^3.8.1",
     "nuxt": "^3.7.4"
   },
@@ -24,6 +25,7 @@
     "@typescript-eslint/parser": "^6.7.3",
     "axios": "^1.5.1",
     "eslint": "^8.50.0",
+    "pinia": "^2.1.6",
     "typescript": "^5.2.2"
   }
 }

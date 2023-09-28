@@ -48,38 +48,43 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import axios, { AxiosResponse, AxiosError } from "axios";
+import {ref} from "vue"
+import axios, {AxiosResponse, AxiosError} from "axios"
+import {useTokenStore} from "~/store/token-store" // Replace with the correct path to your store file
 
 interface ApiResponse {
-  token: string;
+  token: string
 }
 
-const usernameRef = ref("");
-const passwordRef = ref("");
+const usernameRef = ref("")
+const passwordRef = ref("")
+const tokenStore = useTokenStore() // Initialize the store
 
 const onSubmit = (e: Event) => {
-  e.preventDefault();
-  const username = usernameRef.value;
-  const password = passwordRef.value;
-  const apiUrl = "http://localhost:9000/login";
+  e.preventDefault()
+  const username = usernameRef.value
+  const password = passwordRef.value
+  const apiUrl = "http://localhost:9000/login"
 
   axios
     .post(apiUrl, {
       username,
       password,
     })
-    .then((response: AxiosResponse<ApiResponse>) => { 
-      const token = response.data.token;
+    .then((response: AxiosResponse<ApiResponse>) => {
+      const token = response.data.token
+      tokenStore.setToken(token)
+      tokenStore.setUsername(username)
       console.log("Login Success")
-      console.log(token)
+      console.log("Signed in as ", tokenStore.username)
+      // console.log("token: ", tokenStore.token)
     })
     .catch((error: AxiosError) => {
       if (error.response) {
-        console.error("Server error:", error.response.data);
+        console.error("Server error:", error.response.data)
       } else {
-        console.error("Network error:", error.message);
+        console.error("Network error:", error.message)
       }
-    });
-};
+    })
+}
 </script>
