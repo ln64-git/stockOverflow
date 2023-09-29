@@ -27,4 +27,3 @@ if (!tokenStore.token) {
     </ul>
   </div>
 </template>
-~/utils/store/token-store

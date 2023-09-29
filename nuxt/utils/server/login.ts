@@ -1,5 +1,5 @@
 import axios, {AxiosError, AxiosResponse} from "axios"
-import {useTokenStore} from "~/utils/store/token-store"
+import {useTokenStore} from "~/utils/local/token-store"
 
 interface ApiResponse {
   token: string
