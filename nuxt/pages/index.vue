@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {useTokenStore} from "~/store/token-store"
-import getGroupList from "~/utils/server/get-group-list";
+import getGroupList from "~/utils/server/get-group-list"
 
 let groupList: Group[] = await getGroupList()
 const tokenStore = useTokenStore()
@@ -27,3 +27,4 @@ if (!tokenStore.token) {
     </ul>
   </div>
 </template>
+~/utils/store/token-store

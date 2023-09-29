@@ -84,7 +84,7 @@ const onSubmit = (e: Event) => {
       username,
       password,
       confirmPassword: passwordConfirm,
-      role: 'user'
+      role: "user",
     })
     .then((response: AxiosResponse<ApiResponse>) => {
       const token = response.data.token
@@ -103,3 +103,4 @@ const onSubmit = (e: Event) => {
     })
 }
 </script>
+../../utils/store/token-store
