@@ -1,5 +1,7 @@
 <script>
+
 import "~/global.css"
+
 </script>
 
 <template>
