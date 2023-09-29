@@ -29,7 +29,6 @@ declare global {
   const getAppManifest: typeof import('../../node_modules/nuxt/dist/app')['getAppManifest']
   const getCurrentInstance: typeof import('../../node_modules/vue')['getCurrentInstance']
   const getCurrentScope: typeof import('../../node_modules/vue')['getCurrentScope']
-  const getGroupList: typeof import('../../utils/get-group-list')['default']
   const getRouteRules: typeof import('../../node_modules/nuxt/dist/app')['getRouteRules']
   const h: typeof import('../../node_modules/vue')['h']
   const hasInjectionContext: typeof import('../../node_modules/vue')['hasInjectionContext']
@@ -172,7 +171,6 @@ declare module 'vue' {
     readonly getAppManifest: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['getAppManifest']>
     readonly getCurrentInstance: UnwrapRef<typeof import('../../node_modules/vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('../../node_modules/vue')['getCurrentScope']>
-    readonly getGroupList: UnwrapRef<typeof import('../../utils/get-group-list')['default']>
     readonly getRouteRules: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['getRouteRules']>
     readonly h: UnwrapRef<typeof import('../../node_modules/vue')['h']>
     readonly hasInjectionContext: UnwrapRef<typeof import('../../node_modules/vue')['hasInjectionContext']>
@@ -309,7 +307,6 @@ declare module '@vue/runtime-core' {
     readonly getAppManifest: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['getAppManifest']>
     readonly getCurrentInstance: UnwrapRef<typeof import('../../node_modules/vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('../../node_modules/vue')['getCurrentScope']>
-    readonly getGroupList: UnwrapRef<typeof import('../../utils/get-group-list')['default']>
     readonly getRouteRules: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['getRouteRules']>
     readonly h: UnwrapRef<typeof import('../../node_modules/vue')['h']>
     readonly hasInjectionContext: UnwrapRef<typeof import('../../node_modules/vue')['hasInjectionContext']>

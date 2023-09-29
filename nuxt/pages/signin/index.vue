@@ -1,3 +1,14 @@
+<script setup lang="ts">
+import {ref} from "vue"
+import Login from "~/utils/server/login"
+const usernameRef = ref("")
+const passwordRef = ref("")
+const onSubmit = (e: Event) => {
+  e.preventDefault()
+  Login(usernameRef.value, passwordRef.value)
+}
+</script>
+
 <template>
   <div class="hero min-h-screen bg-base-200">
     <div class="hero-content flex-col lg:flex-row-reverse">
@@ -47,46 +58,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import {ref} from "vue"
-import axios, {AxiosResponse, AxiosError} from "axios"
-import {useTokenStore} from "../../store/token-store"
-
-interface ApiResponse {
-  token: string
-}
-
-const usernameRef = ref("")
-const passwordRef = ref("")
-const tokenStore = useTokenStore()
-
-console.log("Signed in as ", tokenStore.username)
-const onSubmit = (e: Event) => {
-  e.preventDefault()
-  const username = usernameRef.value
-  const password = passwordRef.value
-  const apiUrl = "http://localhost:9000/login"
-
-  axios
-    .post(apiUrl, {
-      username,
-      password,
-    })
-    .then((response: AxiosResponse<ApiResponse>) => {
-      const token = response.data.token
-      tokenStore.setToken(token)
-      tokenStore.setUsername(username)
-      console.log("Login Success")
-      console.log("Signed in as ", tokenStore.username)
-      // console.log("token: ", tokenStore.token)
-    })
-    .catch((error: AxiosError) => {
-      if (error.response) {
-        console.error("Server error:", error.response.data)
-      } else {
-        console.error("Network error:", error.message)
-      }
-    })
-}
-</script>
