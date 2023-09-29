@@ -27,6 +27,17 @@
               class="input input-bordered"
             />
           </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Confirm Password</span>
+            </label>
+            <input
+              v-model="passwordConfirmationRef"
+              type="password"
+              placeholder="confirm password"
+              class="input input-bordered"
+            />
+          </div>
           <div class="form-control mt-2">
             <button @click="onSubmit" class="btn btn-primary m-6">Login</button>
           </div>
@@ -34,9 +45,7 @@
       </div>
       <div class="flex gap-10">
         <label class="">
-          <a href="/signup" class="label-text-alt link link-hover"
-            >Create Account</a
-          >
+          <a href="/" class="label-text-alt link link-hover">Login</a>
         </label>
         <label class="">
           <a href="#" class="label-text-alt link link-hover"
@@ -51,7 +60,7 @@
 <script setup lang="ts">
 import {ref} from "vue"
 import axios, {AxiosResponse, AxiosError} from "axios"
-import {useTokenStore} from "~/store/token-store"
+import {useTokenStore} from "../../store/token-store"
 
 interface ApiResponse {
   token: string
@@ -59,25 +68,30 @@ interface ApiResponse {
 
 const usernameRef = ref("")
 const passwordRef = ref("")
+const passwordConfirmationRef = ref("")
 const tokenStore = useTokenStore()
 
 const onSubmit = (e: Event) => {
   e.preventDefault()
+
   const username = usernameRef.value
   const password = passwordRef.value
-  const apiUrl = "http://localhost:9000/login"
+  const passwordConfirm = passwordConfirmationRef.value
+  const apiUrl = "http://localhost:9000/register"
 
   axios
     .post(apiUrl, {
       username,
       password,
+      confirmPassword: passwordConfirm,
+      role: 'user'
     })
     .then((response: AxiosResponse<ApiResponse>) => {
       const token = response.data.token
       tokenStore.setToken(token)
       tokenStore.setUsername(username)
-      console.log("Login Success")
-      console.log("Signed in as ", tokenStore.username)
+      console.log("Registration Successfull")
+      // console.log("Signed in as ", tokenStore.username)
       // console.log("token: ", tokenStore.token)
     })
     .catch((error: AxiosError) => {
