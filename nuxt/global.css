@@ -6,6 +6,22 @@ main {
   align-items: center; /* Vertical centering */
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #00000000;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #19191cae;
+  outline: 2px solid #00000000;
+  outline-offset: -2px;
+  border: 0.1px solid #00000000;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #424355ae;
+}
+
 /* #Home .layout {} */
 /* #Home .header {} */
 /* #Home .body {} */

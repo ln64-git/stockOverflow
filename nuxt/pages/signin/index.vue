@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import {ref} from "vue"
 import Login from "~/utils/server/login"
+const router = useRouter()
 const usernameRef = ref("")
 const passwordRef = ref("")
 const onSubmit = (e: Event) => {
   e.preventDefault()
   Login(usernameRef.value, passwordRef.value)
+  router.push('/')
 }
 </script>
 
