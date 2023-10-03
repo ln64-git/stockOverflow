@@ -110,9 +110,9 @@ public class GroupController {
 
     @GetMapping("/{groupId}/members")
     public List <GroupMember> getAllMembers(@PathVariable int groupId, Principal principal){
-        if(!utilDao.isVerified(principal.getName(), groupId)){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User is not a member of this group");
-        }
+//        if(!utilDao.isVerified(principal.getName(), groupId)){
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User is not a member of this group");
+//        }
         try {
             return groupDao.getAllMembers(groupId);
         } catch (GetException e) {
