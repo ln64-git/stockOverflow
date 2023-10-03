@@ -1,7 +1,7 @@
 <template>
   <div class="navbar bg-base-200">
     <div class="flex-1">
-      <a class="btn btn-ghost normal-case text-xl">stockOverfloq</a>
+      <a class="btn btn-ghost normal-case text-xl">stockOverflow</a>
     </div>
     <div class="flex-none">
       <button class="btn btn-square btn-ghost">
