@@ -3,6 +3,7 @@ import getGroupList from "~/utils/server/get-group-list"
 import getGroupUserCount from "~/utils/server/get-group-user-count"
 import {useTokenStore} from "~/utils/local/token-store"
 import getGroupMembers from "~/utils/server/get-group-members"
+import addUserToGroup from "~/utils/server/add-user-to-group"
 
 const {groupId} = defineProps(["groupId"])
 let group: Group | null = null
@@ -28,12 +29,21 @@ if (groupId) {
   }
 }
 
+const passwordRef = ref("")
+const errorRef = ref("")
 const handleViewClick = () => {}
 const handleJoinClick = () => {
-  overlay.value = !overlay.value
+  overlay.value = true
 }
-
-const passwordRef = ref('')
+const handleSubmitClick = () => {
+  try {
+    addUserToGroup(groupId, passwordRef.value)
+  } catch (error: any) {
+    errorRef.value = error
+  } finally {
+    overlay.value = false
+  }
+}
 </script>
 
 <template>
@@ -46,13 +56,13 @@ const passwordRef = ref('')
       </span>
       <div class="card-actions justify-between">
         <div class="flex justify-between align-middle">
-             <input
-              v-model="passwordRef"
-              placeholder="password"
-              class="input file-input-bordered w-[200px]"
-            />
-       </div>
-        <button class="btn btn-accent w-1/3" @click="handleJoinClick">
+          <input
+            v-model="passwordRef"
+            placeholder="password"
+            class="input file-input-bordered w-[200px]"
+          />
+        </div>
+        <button class="btn btn-accent w-1/3" @click="handleSubmitClick">
           Submit
         </button>
       </div>
@@ -66,7 +76,12 @@ const passwordRef = ref('')
         <p>user count:</p>
         <p class="text-right pb-2">{{ userCount }}</p>
       </span>
-      <div class="card-actions justify-end">
+      <div class="card-actions justify-between">
+        <div class="flex justify-between align-middle">
+          <div v-if="errorRef != ''">
+            {{ errorRef }}
+          </div>
+        </div>
         <button
           v-if="joined"
           class="btn btn-primary w-1/3"
