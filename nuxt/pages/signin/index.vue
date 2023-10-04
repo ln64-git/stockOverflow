@@ -51,11 +51,6 @@ const onSubmit = (e: Event) => {
             >Create Account</a
           >
         </label>
-        <label class="">
-          <a href="#" class="label-text-alt link link-hover"
-            >Forgot password?</a
-          >
-        </label>
       </div>
     </div>
   </div>

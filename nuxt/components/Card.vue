@@ -32,7 +32,10 @@ if (groupId) {
 
 const passwordRef = ref("")
 const errorRef = ref("")
-const handleViewClick = () => {}
+const router = useRouter()
+const handleViewClick = () => {
+  router.push(`/${groupId} `)
+}
 const handleJoinClick = () => {
   overlay.value = true
 }

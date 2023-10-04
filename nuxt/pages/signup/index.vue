@@ -1,6 +1,6 @@
 <template>
   <div class="hero min-h-screen bg-base-200">
-    <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="hero-content flex-col">
       <div class="text-center lg:text-left">
         <h1 class="text-5xl font-bold mb-4">stockOverflow</h1>
       </div>
@@ -45,12 +45,7 @@
       </div>
       <div class="flex gap-10">
         <label class="">
-          <a href="/" class="label-text-alt link link-hover">Login</a>
-        </label>
-        <label class="">
-          <a href="#" class="label-text-alt link link-hover"
-            >Forgot password?</a
-          >
+          <a href="/signin" class="label-text-alt link link-hover">Login</a>
         </label>
       </div>
     </div>
@@ -60,7 +55,7 @@
 <script setup lang="ts">
 import {ref} from "vue"
 import axios, {AxiosResponse, AxiosError} from "axios"
-import {useTokenStore} from "../../store/token-store"
+import {useTokenStore} from "../../utils/local/token-store"
 
 interface ApiResponse {
   token: string
