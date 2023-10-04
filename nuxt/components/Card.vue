@@ -22,7 +22,7 @@ if (groupId) {
   const userId = tokenStore.userId
 
   const groupMembers = await getGroupMembers(groupId)
-  
+
   for (const member of groupMembers) {
     if (member.memberId === userId) {
       joined = true
@@ -37,15 +37,13 @@ const handleJoinClick = () => {
   overlay.value = true
 }
 const handleSubmitClick = async () => {
-  try {
-    const errorMessage = await addUserToGroup(groupId, passwordRef.value)
-    if (errorMessage) {
-      errorRef.value = errorMessage
-    }
-  } finally {
-    overlay.value = false
-  }
-}
+  const password = passwordRef.value;
+  const errorMessage = password ? await addUserToGroup(groupId, password) : '';
+  errorRef.value = errorMessage || '';
+  passwordRef.value = ''
+  overlay.value = false;
+};
+
 </script>
 
 <template>
