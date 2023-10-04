@@ -13,7 +13,7 @@ const onSubmit = (e: Event) => {
 
 <template>
   <div class="hero min-h-screen bg-base-200">
-    <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="hero-content flex-col ">
       <div class="text-center lg:text-left">
         <h1 class="text-5xl font-bold mb-4">stockOverflow</h1>
       </div>

@@ -14,5 +14,5 @@ export const useOverlayStore = defineStore("overlay", {
       return this.value
     },
   },
-  persist: false,
+  persist: true,
 })
