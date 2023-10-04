@@ -16,6 +16,11 @@ export const useTokenStore = defineStore("token", {
     setUserId(userId: number) {
       this.userId = userId
     },
+    reset() {
+      this.token = ""
+      this.username = ""
+      this.userId = 0
+    },
   },
   persist: true,
 })
