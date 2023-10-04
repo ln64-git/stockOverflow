@@ -4,7 +4,7 @@ export const useTokenStore = defineStore("token", {
   state: () => ({
     token: "",
     username: "",
-    userId: "",
+    userId: 0,
   }),
   actions: {
     setToken(token: string) {
@@ -13,7 +13,7 @@ export const useTokenStore = defineStore("token", {
     setUsername(username: string) {
       this.username = username
     },
-    setUserId(userId: string) {
+    setUserId(userId: number) {
       this.userId = userId
     },
   },

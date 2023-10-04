@@ -3,8 +3,13 @@ import {useTokenStore} from "~/utils/local/token-store"
 
 interface ApiResponse {
   token: string
-  id: string
+  user: {
+    id: number
+    username: string
+    authorities: {name: string}[]
+  }
 }
+
 
 const Login = (username: string, password: string) => {
   const tokenStore = useTokenStore()
@@ -16,14 +21,15 @@ const Login = (username: string, password: string) => {
     })
     .then((response: AxiosResponse<ApiResponse>) => {
       const token = response.data.token
-      const userId = response.data.id
+      const user = response.data.user 
+      const userId = user.id 
+      console.log(userId)
       tokenStore.setToken(token)
       tokenStore.setUsername(username)
       tokenStore.setUserId(userId)
       console.log(response.data)
       console.log("Login Success")
       console.log("Signed in as", tokenStore.username)
-      // console.log("token: ", tokenStore.token)
     })
     .catch((error: AxiosError) => {
       if (error.response) {

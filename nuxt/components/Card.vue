@@ -22,8 +22,9 @@ if (groupId) {
   const userId = tokenStore.userId
 
   const groupMembers = await getGroupMembers(groupId)
+  
   for (const member of groupMembers) {
-    if (member.userId === userId) {
+    if (member.memberId === userId) {
       joined = true
     }
   }
