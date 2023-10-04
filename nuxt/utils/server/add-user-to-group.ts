@@ -1,5 +1,5 @@
 import { useTokenStore } from "../../utils/local/token-store";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 
 const addUserToGroup = async (groupId: number, password: string) => {
   const tokenStore = useTokenStore();
@@ -18,9 +18,7 @@ const addUserToGroup = async (groupId: number, password: string) => {
       params: queryParams,
     });
   } catch (error: any) {
-    console.error("Error:", error.message);
-    console.log("Response Data:", error.response?.data);
-    throw error;
+    return error.response?.data.message
   }
 };
 

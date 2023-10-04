@@ -35,11 +35,12 @@ const handleViewClick = () => {}
 const handleJoinClick = () => {
   overlay.value = true
 }
-const handleSubmitClick = () => {
+const handleSubmitClick = async () => {
   try {
-    addUserToGroup(groupId, passwordRef.value)
-  } catch (error: any) {
-    errorRef.value = error
+    const errorMessage = await addUserToGroup(groupId, passwordRef.value)
+    if (errorMessage) {
+      errorRef.value = errorMessage
+    }
   } finally {
     overlay.value = false
   }
