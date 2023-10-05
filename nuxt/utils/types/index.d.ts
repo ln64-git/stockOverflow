@@ -7,6 +7,15 @@ declare global {
     groupName: string
     groupOwnerId: number
   }
+  interface List {
+    claimedId: number
+    dateModified: string
+    description: string
+    groupId: number
+    listCompletedw: boolean
+    listId: number
+    listName: string
+  }
 }
 
 export {}

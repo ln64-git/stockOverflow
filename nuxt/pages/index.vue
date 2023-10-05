@@ -3,8 +3,8 @@ import Card from "~/components/Card.vue"
 import Overlay from "~/components/Overlay.vue"
 import { useOverlayStore } from "~/utils/local/overlay-store"
 import { useTokenStore } from "~/utils/local/token-store"
-import getGroupList from "~/utils/server/get-group-list"
-import { ref, computed } from "vue" // Import ref and computed
+import { ref, computed } from "vue" 
+import getGroupList from "~/utils/server/group/get-group-list"
 
 let groupList: Group[] = await getGroupList()
 const tokenStore = useTokenStore()

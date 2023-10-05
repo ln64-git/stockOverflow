@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import getGroupList from "~/utils/server/get-group-list"
-import getGroupUserCount from "~/utils/server/get-group-user-count"
-import {useTokenStore} from "~/utils/local/token-store"
-import getGroupMembers from "~/utils/server/get-group-members"
-import addUserToGroup from "~/utils/server/add-user-to-group"
+import { useTokenStore } from '~/utils/local/token-store';
+import addUserToGroup from '~/utils/server/group/add-user-to-group';
+import getGroupList from '~/utils/server/group/get-group-list';
+import getGroupMembers from '~/utils/server/group/get-group-members';
+import getGroupUserCount from '~/utils/server/group/get-group-user-count';
 
 const {groupId} = defineProps(["groupId"])
 let group: Group | null = null
@@ -40,13 +40,12 @@ const handleJoinClick = () => {
   overlay.value = true
 }
 const handleSubmitClick = async () => {
-  const password = passwordRef.value;
-  const errorMessage = password ? await addUserToGroup(groupId, password) : '';
-  errorRef.value = errorMessage || '';
-  passwordRef.value = ''
-  overlay.value = false;
-};
-
+  const password = passwordRef.value
+  const errorMessage = password ? await addUserToGroup(groupId, password) : ""
+  errorRef.value = errorMessage || ""
+  passwordRef.value = ""
+  overlay.value = false
+}
 </script>
 
 <template>
@@ -99,3 +98,4 @@ const handleSubmitClick = async () => {
     </div>
   </div>
 </template>
+~/utils/server/group/add-user-to-group

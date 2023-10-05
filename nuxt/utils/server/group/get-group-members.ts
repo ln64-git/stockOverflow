@@ -1,4 +1,5 @@
-import {useTokenStore} from "../../utils/local/token-store"
+import {useTokenStore} from "../../../utils/local/token-store"
+
 import axios, {AxiosResponse} from "axios"
 
 const getGroupMembers = async (groupId: number) => {

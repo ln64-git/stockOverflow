@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {ref} from "vue"
-import Login from "~/utils/server/login"
+import Login from "~/utils/server/user/login";
+
 const router = useRouter()
 const usernameRef = ref("")
 const passwordRef = ref("")

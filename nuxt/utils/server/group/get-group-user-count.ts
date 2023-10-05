@@ -1,10 +1,9 @@
-import {useTokenStore} from "../../utils/local/token-store"
+import {useTokenStore} from "../../../utils/local/token-store"
 import axios, {AxiosResponse} from "axios"
 
-const getGroupByGroupId= async (groupId: number) => {
+const getGroupUserCount = async (groupId: number) => {
   const tokenStore = useTokenStore()
-  const apiUrl = `http://localhost:9000/groups/${groupId}`
-
+  const apiUrl = `http://localhost:9000/groups/${groupId}/members`
   const headers = {
     Authorization: `Bearer ${tokenStore.token}`,
   }
@@ -16,4 +15,4 @@ const getGroupByGroupId= async (groupId: number) => {
   }
 }
 
-export default getGroupByGroupId
+export default getGroupUserCount
