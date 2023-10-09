@@ -2,6 +2,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     'Card': typeof import("../components/Card.vue")['default']
+    'ItemList': typeof import("../components/ItemList.vue")['default']
     'Navbar': typeof import("../components/Navbar.vue")['default']
     'Overlay': typeof import("../components/Overlay.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
@@ -23,6 +24,7 @@ declare module 'vue' {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyCard': typeof import("../components/Card.vue")['default']
+    'LazyItemList': typeof import("../components/ItemList.vue")['default']
     'LazyNavbar': typeof import("../components/Navbar.vue")['default']
     'LazyOverlay': typeof import("../components/Overlay.vue")['default']
     'LazyNuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
@@ -47,6 +49,7 @@ declare module 'vue' {
 }
 
 export const Card: typeof import("../components/Card.vue")['default']
+export const ItemList: typeof import("../components/ItemList.vue")['default']
 export const Navbar: typeof import("../components/Navbar.vue")['default']
 export const Overlay: typeof import("../components/Overlay.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
@@ -68,6 +71,7 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyCard: typeof import("../components/Card.vue")['default']
+export const LazyItemList: typeof import("../components/ItemList.vue")['default']
 export const LazyNavbar: typeof import("../components/Navbar.vue")['default']
 export const LazyOverlay: typeof import("../components/Overlay.vue")['default']
 export const LazyNuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']

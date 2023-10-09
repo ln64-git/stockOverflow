@@ -98,4 +98,3 @@ const handleSubmitClick = async () => {
     </div>
   </div>
 </template>
-~/utils/server/group/add-user-to-group
