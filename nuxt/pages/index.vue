@@ -10,6 +10,7 @@ let groupList: Group[] = await getGroupList()
 const tokenStore = useTokenStore()
 const router = useRouter()
 if (!tokenStore.token) {
+  console.log("trigger")
   router.push({ path: "/signin" })
 }
 

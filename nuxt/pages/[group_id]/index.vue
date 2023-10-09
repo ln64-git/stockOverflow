@@ -14,7 +14,6 @@ if (auth) {
   group = await getGroupByGroupId(groupId)
   list = await getListByGroupId(groupId)
 }
-
 </script>
 
 <template>
@@ -38,7 +37,24 @@ if (auth) {
                   <p>{{ item.description }}</p>
                 </div>
                 <div class="card-actions justify-end">
-                  <button class="btn btn-large w-[72px]">View</button>
+                  <button class="btn btn-large btn-primary w-[72px]">
+                    View
+                  </button>
+                  <button class="btn btn-large btn-outline btn-error w-[72px]">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+              <div class="card bg-base-100 w-full text-primary-content my-4">
+              <div class="card-body flex justify-center">
+                <div>
+                  <h2 class="card-title justify-center">New List</h2>
+                </div>
+                <div class="card-actions justify-center" >
+                  <button class="btn  btn-neutral w-[120px]">
+                    +
+                  </button>
                 </div>
               </div>
             </div>
