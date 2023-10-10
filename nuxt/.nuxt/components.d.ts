@@ -2,6 +2,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     'Card': typeof import("../components/Card.vue")['default']
+    'Item': typeof import("../components/Item.vue")['default']
     'ItemList': typeof import("../components/ItemList.vue")['default']
     'Navbar': typeof import("../components/Navbar.vue")['default']
     'Overlay': typeof import("../components/Overlay.vue")['default']
@@ -24,6 +25,7 @@ declare module 'vue' {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyCard': typeof import("../components/Card.vue")['default']
+    'LazyItem': typeof import("../components/Item.vue")['default']
     'LazyItemList': typeof import("../components/ItemList.vue")['default']
     'LazyNavbar': typeof import("../components/Navbar.vue")['default']
     'LazyOverlay': typeof import("../components/Overlay.vue")['default']
@@ -49,6 +51,7 @@ declare module 'vue' {
 }
 
 export const Card: typeof import("../components/Card.vue")['default']
+export const Item: typeof import("../components/Item.vue")['default']
 export const ItemList: typeof import("../components/ItemList.vue")['default']
 export const Navbar: typeof import("../components/Navbar.vue")['default']
 export const Overlay: typeof import("../components/Overlay.vue")['default']
@@ -71,6 +74,7 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyCard: typeof import("../components/Card.vue")['default']
+export const LazyItem: typeof import("../components/Item.vue")['default']
 export const LazyItemList: typeof import("../components/ItemList.vue")['default']
 export const LazyNavbar: typeof import("../components/Navbar.vue")['default']
 export const LazyOverlay: typeof import("../components/Overlay.vue")['default']

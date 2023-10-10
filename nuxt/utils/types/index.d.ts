@@ -12,9 +12,19 @@ declare global {
     dateModified: string
     description: string
     groupId: number
-    listCompletedw: boolean
+    listCompleted: boolean
     listId: number
     listName: string
+  }
+  interface Item {
+    dateModified: string
+    groupId: number
+    itemId: number
+    itemName: string
+    lastModifier: number
+    listId: number
+    quantity: number
+    status: boolean
   }
 }
 
