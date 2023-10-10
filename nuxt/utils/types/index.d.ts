@@ -26,6 +26,11 @@ declare global {
     quantity: number
     status: boolean
   }
+  interface User {
+    authorities: {name: string}[]
+    id: number
+    username: string
+  }
 }
 
 export {}

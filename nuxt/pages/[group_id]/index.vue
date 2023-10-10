@@ -55,3 +55,4 @@ const handleDelete = (listId: number) => {}
     </div>
   </div>
 </template>
+~/utils/server/user/list/get-list-by-group-id
