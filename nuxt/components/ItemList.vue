@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import getListItems from "~/utils/server/item/get-list-items"
+import getUserById from "~/utils/server/user/get-user-by-id"
 
 const props = defineProps({
   item: Object as () => List,
@@ -7,7 +8,8 @@ const props = defineProps({
 const groupId = props.item?.groupId || 0
 const listId = props.item?.listId || 0
 const itemList = await getListItems(groupId, listId)
-let claimed = props.item?.claimedId
+let isClaimed = props.item?.claimedId
+let claimedBy = await getUserById(props.item?.claimedId || 0)
 </script>
 
 <template>
@@ -17,8 +19,8 @@ let claimed = props.item?.claimedId
       <p>{{ props.item?.description }}</p>
     </div>
     <div class="card-actions justify-end">
-      <button v-if="claimed" class="btn"></button>
-      <button v-else class="btn ">open</button>
+      <button v-if="isClaimed" class="btn">Claimed by {{ claimedBy }}</button>
+      <button v-else class="btn">open</button>
     </div>
   </div>
   <div class="collapse-content">
@@ -26,18 +28,12 @@ let claimed = props.item?.claimedId
       <Item :item="item" />
     </div>
     <div class="justify-around flex w-1/2 m-auto gap-4">
-      <button class="btn btn-outline btn-error w-[100px] z-20">
-        Delete
-      </button>
-      <button class="btn btn-outline btn-warning w-[100px] z-20">
-        Edit
-      </button>
+      <button class="btn btn-outline btn-error w-[100px] z-20">Delete</button>
+      <button class="btn btn-outline btn-warning w-[100px] z-20">Edit</button>
       <button class="btn btn-outline btn-secondary w-[100px] z-20">
         Complete
       </button>
-      <button class="btn btn-info btn-outline w-[100px] z-20">
-        Claim
-      </button>
+      <button class="btn btn-info btn-outline w-[100px] z-20">Claim</button>
     </div>
   </div>
 </template>
