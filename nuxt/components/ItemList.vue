@@ -12,6 +12,13 @@ let isClaimed = props.item?.claimedId
 let claimedBy = await getUserById(props.item?.claimedId || 0)
 </script>
 
+<script lang="ts">
+let areYouSure = ref(false)
+const handleClick = () => {
+  areYouSure.value = true
+}
+</script>
+
 <template>
   <div class="card collapse-title p-6 flex flex-row justify-between">
     <div>
@@ -20,17 +27,36 @@ let claimedBy = await getUserById(props.item?.claimedId || 0)
     </div>
     <div class="card-actions justify-end">
       <button v-if="isClaimed" class="btn">Claimed by {{ claimedBy }}</button>
-      <button v-else class="btn">open</button>
+      <button v-else class="btn z-20">open</button>
     </div>
   </div>
   <div class="collapse-content">
-    <div class="font-bold" v-for="(item, index) in itemList" :key="index">
+    <div v-if="areYouSure" class="text-center text-3xl font-light py-4">Are you sure</div>
+    <div
+      v-else
+      v-for="(item, index) in itemList"
+      :key="index"
+      class="font-bold"
+    >
       <Item :item="item" />
     </div>
-    <div class="justify-around flex w-1/2 m-auto gap-4">
-      <button class="btn btn-outline btn-error w-[100px] z-20">Delete</button>
-      <button class="btn btn-outline btn-warning w-[100px] z-20">Edit</button>
-      <button class="btn btn-outline btn-secondary w-[100px] z-20">
+    <div class="justify-around flex w-1/2 m-auto gap-4 pt-4">
+      <button
+        @click="handleClick"
+        class="btn btn-outline btn-error w-[100px] z-20"
+      >
+        Delete
+      </button>
+      <button
+        @click="handleClick"
+        class="btn btn-outline btn-warning w-[100px] z-20"
+      >
+        Edit
+      </button>
+      <button
+        @click="handleClick"
+        class="btn btn-outline btn-secondary w-[100px] z-20"
+      >
         Complete
       </button>
       <button class="btn btn-info btn-outline w-[100px] z-20">Claim</button>
