@@ -15,7 +15,7 @@ let claimedBy = await getUserById(props.item?.claimedId || 0)
 <script lang="ts">
 let areYouSure = ref(false)
 const handleClick = () => {
-  areYouSure.value = true
+  areYouSure.value = !areYouSure.value
 }
 </script>
 
@@ -31,7 +31,18 @@ const handleClick = () => {
     </div>
   </div>
   <div class="collapse-content">
-    <div v-if="areYouSure" class="text-center text-3xl font-light py-4">Are you sure</div>
+    <div v-if="areYouSure" class="text-center text-3xl font-light pb-2 pt-6">
+      Are you sure
+      <div class="justify-center flex w-1/2 m-auto gap-8 pt-10 ">
+        <button
+          @click="handleClick"
+          class="btn btn-outline btn-neutral-100 w-[100px] z-20"
+        >
+          Return
+        </button>
+        <button class="btn btn-success btn-outline w-[100px] z-20">Submit</button>
+      </div>
+    </div>
     <div
       v-else
       v-for="(item, index) in itemList"
@@ -40,7 +51,7 @@ const handleClick = () => {
     >
       <Item :item="item" />
     </div>
-    <div class="justify-around flex w-1/2 m-auto gap-4 pt-4">
+    <div v-if="!areYouSure" class="justify-around flex w-1/2 m-auto gap-4 pt-4">
       <button
         @click="handleClick"
         class="btn btn-outline btn-error w-[100px] z-20"
