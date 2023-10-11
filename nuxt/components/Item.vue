@@ -1,12 +1,22 @@
 <script setup lang="ts">
+import setItemComplete from '~/utils/server/item/set-item-complete';
+import setItemIncomplete from '~/utils/server/item/set-item-incomplete';
+import toggleItemStatus from '~/utils/server/item/toggle-item-status';
+
 const props = defineProps({
   item: Object as () => Item,
-})
+});
+const checked = props.item?.status || false;
+const countCurrent = props.item?.lastModifier;
+const countNeeded = props.item?.quantity;
 
-const checked = props.item?.status || false
-
-const countCurrent = props.item?.lastModifier
-const countNeeded = props.item?.quantity
+const handleClick = () => {
+  const groupId = props.item?.groupId || 0;
+  const listId = props.item?.listId || 0;
+  const itemId = props.item?.itemId || 0;
+  const item = props.item
+  toggleItemStatus(item, groupId, listId, itemId);
+};
 </script>
 
 <template>
@@ -26,6 +36,7 @@ const countNeeded = props.item?.quantity
         type="checkbox"
         :checked="checked"
         class="checkbox checkbox-lg checkbox-success ml-4"
+        @click="handleClick"
       />
     </div>
   </div>

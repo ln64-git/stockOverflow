@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Card from "~/components/Card.vue"
 import Overlay from "~/components/Overlay.vue"
 import { useOverlayStore } from "~/utils/local/overlay-store"
 import { useTokenStore } from "~/utils/local/token-store"
@@ -10,7 +9,6 @@ let groupList: Group[] = await getGroupList()
 const tokenStore = useTokenStore()
 const router = useRouter()
 if (!tokenStore.token) {
-  console.log("trigger")
   router.push({ path: "/signin" })
 }
 
