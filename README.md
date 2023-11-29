@@ -1,9 +1,4 @@
-# Final Capstone
+# stockOverflow
+
 ​
-This directory contains all of the starter projects for the final capstone.
-​
-Each project contains instructions that provides information about the starting code and explains how to get started with the final capstone project.
-# stockOverflow
-# stockOverflow
-# stockOverflow
-# stockOverflow
+Full-stack Vue application that utilizes RESTful API calls to store entries inside of a PostgreSQL database. The application features user authentication and a reactive front-end interface that enables users to create, read, update, and delete shared grocery lists.
